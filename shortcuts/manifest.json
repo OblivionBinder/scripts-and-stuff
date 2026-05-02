@@ -1,0 +1,31 @@
+{
+  "name": "Simple Commands Extension",
+  "description": "Modified version of the sample Commands",
+  "manifest_version": 3,
+  "version": "1.0",
+
+  "permissions": ["activeTab", "scripting", "storage"],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "BinaricSovereign@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "background": {
+    "scripts": ["src/background.ts"]
+  },
+
+  "commands": {
+    "paragraphs": {
+      "suggested_key": { 
+        "default": "Ctrl+Alt+P" 
+      },
+      "description": "specify number of paragraphs"
+    }
+  }
+
+}
