@@ -1,0 +1,14 @@
+Tells the LLM to shut the swearwor up by having dedicated commands to specify a number of paragraphs, and for very rudely specifying number of pgs. This is not supposed to be public, and I made it in 30 minutes with an LLM. Yeah I'm slow, sue me. Used this shit: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension
+
+
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://copilot.microsoft.com/*",
+        "*://chat.openai.com/*",
+        "*://chatgpt.com/*"
+      ],
+      "js": ["BinaricSovereign.js"]
+    }
+  ]

@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "BinaricSovereign",
+  "version": "1.0",
+
+  "description": "Tells the LLM to shut the swearwor up by having dedicated commands to specify a number of paragraphs, and for very rudely specifying number of pgs. This is not supposed to be public, and I made it in 30 minutes with an LLM. Yeah I'm slow, sue me",
+
+  "permissions": ["activeTab", "scripting"],
+  
+  "background": {
+    "scripts": []
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "BinaricSovereign@mozilla.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+
+  "commands": {
+    "paragraphs": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+P"
+      },
+      "description": "Insert 'paragraphs response'"
+    }
+  }
+
+}
