@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "lazywebdl",
+  "version": "1.0",
+
+  "description": "Ez download of stuff while including creator/author/source (and hopefully more later)",
+  
+  "permissions": [
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking"
+  ], 
+
+  "host_permissions": [
+    "*://x.com/*",
+    "*://xcancel.com/*",
+    "*://reddit.com/*",
+    "*://old.reddit.com/*"
+  ],
+
+  "background": {
+    "scripts": ["/dist/background/background.js"]
+  },
+
+  "commands": {
+    "save-content": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+S"
+      },
+      "description": "Reserved for the actual saving"
+    },
+    "run-command": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+W"
+      },
+      "description": "testing shit ig"
+    }
+  }
+}
