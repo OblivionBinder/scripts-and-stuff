@@ -8,18 +8,21 @@
   "permissions": [
     "activeTab",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "scripting"
   ], 
 
   "host_permissions": [
-    "*://x.com/*",
-    "*://xcancel.com/*",
-    "*://reddit.com/*",
-    "*://old.reddit.com/*"
+    "*://*.x.com/*",
+    "*://*.xcancel.com/*",
+    "*://*.reddit.com/*",
+    "*://*.royalroad.com/*",
+    "*://*.dmi.dk/*"
   ],
 
   "background": {
-    "scripts": ["/dist/background/background.js"]
+    "scripts": ["/dist/background.bundled.js"],
+    "type": "module"
   },
 
   "commands": {
@@ -34,6 +37,19 @@
         "default": "Ctrl+Alt+W"
       },
       "description": "testing shit ig"
+    }
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@lazywebdl-addon",
+      "data_collection_permissions": {
+        "required": [
+          "websiteActivity",
+          "websiteContent"
+        ]
+      },
+      "strict_min_version": "142.0"
     }
   }
 }

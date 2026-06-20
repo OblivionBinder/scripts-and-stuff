@@ -7,9 +7,14 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "esnext",
+    "module": "es2022",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "customConditions": ["module"],
+
     "target": "es6",
-    "types": [],
+    // "types": [],
+
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -41,9 +46,11 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
 
-    // Additional Options I found lying around. Check the ts docs for more.
-    "esModuleInterop": true,
-
+    // Recommended for using a bundler: https://www.typescriptlang.org/docs/handbook/modules/guides/choosing-compiler-options.html
+    "noEmit": true, // or `emitDeclarationOnly`
+    "allowImportingTsExtensions": true,
+    "allowArbitraryExtensions": true
+    // "verbatimModuleSyntax": true, // or `isolatedModules`
   },
   "include": ["src/**/*"]
 }

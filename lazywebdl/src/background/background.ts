@@ -1,28 +1,13 @@
-import 'firefox-webext-browser'
+console.log("background.ts running, rr script ready3");
 
-console.log("background.ts running");
+let testURL = "*://*.royalroad.com/*";
 
-let httpsRegex = new RegExp(`(\S*)(?:www)`);
+function redirectTest(requestDetails: any) {
+  console.log(`about to redirect`);
 
-// let xitterURL = "*://x.com/*";
-// let xitterRegex = "";
-
-// function redirectXitter(requestDetails: any) {
-//   console.log(`Redirecting: ${requestDetails.url}`)
-//   let redirect = requestDetails.url;
-
-//   return {
-//     redirectUrl:
-//       redirect,
-//   };
-// };
-
-let redditURL = "*://www.reddit.com/*";
-let redditRegex = new RegExp(`(?::\/\/www)(.reddit.com\/)(\S*)`);
-
-function redirectReddit(requestDetails: any) {
-  console.log(`Redirecting: ${requestDetails.url}`)
-  let redirect = requestDetails.url.match(httpsRegex) + `old` + requestDetails.url.match(redditRegex);
+  const redirect = requestDetails.url.replace("royalroad.com", "dmi.dk");
+  // const redirect = requestDetails.url.replace("www.royalroad.com", "https://www.royalroad.com/fiction/122502/path-of-the-deathless-stubbing-book-1-early-march");
+  console.log(`redirecting from ${requestDetails.url} to ${redirect}`);
 
   return {
     redirectUrl:
@@ -30,18 +15,14 @@ function redirectReddit(requestDetails: any) {
   };  
 };
 
-// Listeners
-// browser.webRequest.onBeforeRequest.addListener(
-//   redirectx, 
-//   { urls: [xitterURL] }, 
-//   ["blocking"],
-// );
+console.log("passed by redirectTest");
 
 browser.webRequest.onBeforeRequest.addListener(
-  redirectReddit, 
-  { urls: [redditURL] }, 
+  redirectTest, 
+  { urls: [testURL] }, 
   ["blocking"],
 );
+console.log("Listener registered:", browser.webRequest.onBeforeRequest.hasListener(redirectTest));
 
 // browser.commands.onCommand.addListener((command) => {
 //   if (command === "run-command") {
