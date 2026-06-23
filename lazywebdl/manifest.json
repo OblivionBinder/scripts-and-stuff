@@ -17,7 +17,9 @@
     "*://*.xcancel.com/*",
     "*://*.reddit.com/*",
     "*://*.royalroad.com/*",
-    "*://*.dmi.dk/*"
+    "*://*.dmi.dk/*",
+    "*://*.example.com/*",
+    "*://*.example.org/*"
   ],
 
   "background": {
